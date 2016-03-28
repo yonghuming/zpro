@@ -13,10 +13,10 @@ class IndexController extends Controller {
             $this->error('请先登录',U('Member/login'));
         }
       }
-public function agree($id,$id) {
+public function agree($id,$uid) {
         $kaoqin = M('kaoqin');
         $data['id'] = $id;
-        $data['id'] = $id;
+        $data['uid'] = $id;
         $kaoqin->flag = 1;
         if($kaoqin->where($data)->save()){
           $this->success('sueccess',U('Index/index'));  
@@ -24,10 +24,10 @@ public function agree($id,$id) {
             $this->error($kaoqin->getError());
         }
     }
-    public function disagree($id,$id) {
+    public function disagree($id,$uid) {
         $kaoqin = M('kaoqin');
         $data['id'] = $id;
-        $data['id'] = $id;
+        $data['uid'] = $id;
         $kaoqin->flag = 0;
         if($kaoqin->where($data)->save()){
             $this->success('sueccess',U('Index/index'));
