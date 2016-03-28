@@ -40,7 +40,7 @@ public function agree($id,$uid) {
         #获取所有申请列表，按照时间顺序
     	$kaoqin = D('kaoqin');
     	$list = $kaoqin->select();
-    	$list=$kaoqin->join('think_membes ON think_member.uid = think_kaoqin.uid','left')->select();
+    	$list=$kaoqin->join('think_member ON think_member.uid = think_kaoqin.uid','left')->select();
     	$this->assign('list',$list);
     	$this->display();
         #可以支持不同分类视图
