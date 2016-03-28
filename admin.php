@@ -22,7 +22,7 @@ define('BIND_MODULE','Admin');
  */
 define ( 'APP_PATH', './Application/' );
 
-#define('APP_STATUS','aliyun');
+define('APP_STATUS','aliyun');
 /**
  * 缓存目录设置
  * 此目录必须可写，建议移动到非WEB目录
