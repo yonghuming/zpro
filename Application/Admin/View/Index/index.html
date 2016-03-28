@@ -1,0 +1,52 @@
+
+
+    <div class="container">
+
+      <div class="starter-template">
+        <h1>未打卡登记管理</h1>
+        <p class="lead">批准或者驳回教师们的申请.</p>
+
+     
+      </div>
+	  <div>
+	  	<table class="table table-condensed">
+			<tr>
+				<th>序号</th>
+				<th>姓名</th>
+				<th>未打卡日期</th>
+				<th>未打卡时间</th>
+				<th>是否请假</th>
+				<th>未打卡原因</th>
+				<th>操作</th>
+			</tr>
+	  		<volist name='list' id='vo'>			
+			<tr>
+				<td>{$i}</td>
+				<td>{$vo.username}</td>
+				<td>{$vo.dk_date}</td>
+				<td>{$vo.optionsradios}</td>
+				<td>				
+				<eq name='vo.am' value='am'>早上、</eq>
+				<eq name='vo.noon' value='noon'>中午、</eq>
+				<eq name='vo.pm' value='pm'>下午</eq>
+				</td>				
+				<td>{$vo.reason}</td>
+				<td>
+					<eq name="vo.flag" value="0">
+					<a href="__URL__/agree/id/{$vo.id}/uid/{$vo.uid}">批准</a>
+					<else/>
+					<a href="__URL__/disagree/id/{$vo.id}/uid/{$vo.uid}">驳回</a>
+					</eq>			
+					
+				</td>
+			</tr>
+			
+	  	</volist>
+	  </table>
+
+	  </div>
+    </div><!-- /.container -->
+
+
+
+
