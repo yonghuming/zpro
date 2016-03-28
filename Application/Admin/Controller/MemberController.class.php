@@ -20,14 +20,12 @@ class MemberController extends Controller {
 			$where['username'] = $data['username'];
 
 			$result = $login->where($where) -> field('uid,username,passwd') -> find();
-
 			$auth = new Auth();
-			#var_dump($auth->getGroups($result['uid']));
-            if(!$auth->check('shenhe',$_SESSION['admin-uid'])){
-                $this->error('没有权限');
-            }
-            
-           # var_dump($auth->check('shenhe',$_SESSION['admin-uid']));
+
+			if(!$auth->check('shenhe',$result['uid'])){
+			    $this->error('没有权限');
+			}
+
 
 			if($result && $result['passwd'] == md5($data['passwd'])){
 				session('admin-uid',$result['uid']);
@@ -36,7 +34,7 @@ class MemberController extends Controller {
 				$ssss['last_login']=date('Y:m:d H:i:s');
 				$login->where('uid='.$result['uid'])->save($ssss);
 
-			   #  $this->success('Login successed!', U('Index/index'));
+			    $this->success('Login successed!', U('Index/index'));
 
 
 			}else{
