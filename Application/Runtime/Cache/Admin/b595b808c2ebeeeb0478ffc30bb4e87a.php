@@ -83,12 +83,13 @@
 				<td><?php echo ($i); ?></td>
 				<td><?php echo ($vo["username"]); ?></td>
 				<td><?php echo ($vo["dk_date"]); ?></td>
-				<td><?php echo ($vo["optionsradios"]); ?></td>
+				
 				<td>				
 				<?php if(($vo["am"]) == "am"): ?>早上、<?php endif; ?>
 				<?php if(($vo["noon"]) == "noon"): ?>中午、<?php endif; ?>
 				<?php if(($vo["pm"]) == "pm"): ?>下午<?php endif; ?>
-				</td>				
+				</td>			
+				<td><?php echo ($vo["optionsradios"]); ?></td>
 				<td><?php echo ($vo["reason"]); ?></td>
 				<td>
 					<?php if(($vo["flag"]) == "0"): ?><a href="/zpro/admin.php/Index/agree/id/<?php echo ($vo["id"]); ?>/uid/<?php echo ($vo["uid"]); ?>">批准</a>

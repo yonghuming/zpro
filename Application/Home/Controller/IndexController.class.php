@@ -14,13 +14,12 @@ class IndexController extends Controller {
       }
     
     public function apply(){
-        var_dump($_POST);
-        
+       
         if(!IS_POST){
             $this->display('teacher');
         }else{
             $kaoqin = D('kaoqin');
-
+        
             $rules = array ( 
                     array('flag','0'),  // 新增的时候把status字段设置为1
               
@@ -28,8 +27,15 @@ class IndexController extends Controller {
                     array('update_time','time',1,'function'), // 对update_time字段在更新的时候写入当前时间戳
                     array('uid',$_SESSION['uid']),
                 );
+            if(null == I('post.dk_time')){
+                $this->error('必须填写未打卡时间');
+            }
+            if(null == I('post.optionsRadios')){
+                $this->error('必须填写是否请假');
+            }
+            
             if(!$data = $kaoqin->auto($rules)->create()){
-                $this->error($login->getError());
+                $this->error($kaoqin->getError());
             }
            
             $times = I('post.dk_time');
@@ -47,7 +53,7 @@ class IndexController extends Controller {
             }
             #根据session中保存的uid插入数据
             $kaoqin->add();
-             $this->success('申请成功等待审核',U('Index/index'));
+            $this->success('申请成功等待审核',U('Index/index'));
 
         }
     }

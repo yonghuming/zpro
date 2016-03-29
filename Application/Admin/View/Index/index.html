@@ -24,12 +24,13 @@
 				<td>{$i}</td>
 				<td>{$vo.username}</td>
 				<td>{$vo.dk_date}</td>
-				<td>{$vo.optionsradios}</td>
+				
 				<td>				
 				<eq name='vo.am' value='am'>早上、</eq>
 				<eq name='vo.noon' value='noon'>中午、</eq>
 				<eq name='vo.pm' value='pm'>下午</eq>
-				</td>				
+				</td>			
+				<td>{$vo.optionsradios}</td>
 				<td>{$vo.reason}</td>
 				<td>
 					<eq name="vo.flag" value="0">
