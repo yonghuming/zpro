@@ -32,7 +32,7 @@ class LoginController extends Controller {
             // 自动验证 创建数据集
             if (!$data = $login->create()) {
                 // 防止输出中文乱码
-                header("Content-type: text/html; charset=utf-8");
+               # header("Content-type: text/html; charset=utf-8");
                 exit($login->getError());
             }
 
