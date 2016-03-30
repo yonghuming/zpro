@@ -4,7 +4,7 @@ use Think\Controller;
 class IndexController extends Controller {
     public function _initialize(){
          
-        if (!isset($_SESSION['enrolluid'])){
+        if (!isset(session('enrolluid'))){
             echo 'hello world';
          #   exit('has session');
             trace($_SESSION);
