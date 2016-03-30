@@ -7,7 +7,7 @@ class IndexController extends Controller {
         if (!isset($_SESSION['enroll']['uid'])){
             echo 'hello world';
          #   exit('has session');
-            $this->error('请先登录',U('Login/login'));
+            $this->error('请先登录',U('Login/login'),10000);
             
         }
      
