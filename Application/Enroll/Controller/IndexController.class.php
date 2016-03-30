@@ -12,14 +12,16 @@ class IndexController extends Controller {
         $this->display();
     }
     public function index(){
-        $enroll = D('enroll');
-        $result = $enroll->where('uid = 1463')->find();
+        trace($_SESSION['enroll']['uid']);
+        #逻辑上是，从members用户表读取用户名和手机号mobile来填充到报名表
+        $enroll = D('members');
+        $result = $enroll->where('id = '.$_SESSION['enroll']['uid'])->find();
         trace($_SESSION['enroll']['uid']);
         trace($result['contact_number1']);
         
         
         $this->assign('username',$_SESSION['enroll']['username']);
-        $this->assign('contact_number1',$result['contact_number1']);
+        $this->assign('contact_number1',$result['mobile']);
        
        $this->display();
     }
