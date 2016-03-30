@@ -5,15 +5,12 @@ use Think\Auth;
 
 class IndexController extends Controller {
 	public function _initialize(){
-       # session(array('expire'=>15));
-	    
-	    
-	   
+   
           if (!isset($_SESSION['admin-username'])){
             $this->error('请先登录',U('Member/login'));
         }
       }
-public function agree($id,$uid) {
+    public function agree($id,$uid) {
         $kaoqin = M('kaoqin');
         $data['id'] = $id;
         $data['uid'] = $uid;
