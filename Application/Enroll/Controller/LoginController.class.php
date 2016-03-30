@@ -72,17 +72,22 @@ class LoginController extends Controller {
     {
         // 判断提交方式 做不同处理
         if (IS_POST) {
+            echo 'ssss';
             // 实例化User对象
             $user = D('members');
           
             // 自动验证 创建数据集
             if (!$data = $user->create()) {
                 // 防止输出中文乱码
-                header("Content-type: text/html; charset=utf-8");
-                exit($user->getError());
+             #   header("Content-type: text/html; charset=utf-8");
+                echo $user->getDbError();
+                
+            }else{
+                echo 'no error';
             }
 
             //插入数据库
+            var_dump($_POST);
             if ($id = $user->add($data)) {
                 /* 直接注册用户为学生用户*/
                 #注册成功后写用户的权限
@@ -93,9 +98,11 @@ class LoginController extends Controller {
                 $user->where("userid = $id")->setField('companyid', $id);
                 $this->success('注册成功', U('Index/index'), 2);
             } else {
-                $this->error('注册失败');
+                echo 'error'.$user->getDbError();
+               # $this->error('注册失败');
             }
         } else {
+            
             $this->display();
         }
     }

@@ -18,8 +18,7 @@ class MembersModel extends Model {
     protected $_validate = array(
         
         array('username', 'require', '用户名不能为空！'), //默认情况下用正则进行验证
-        array('username', '', '该用户名已被注册！', 0, 'unique', 1), // 在新增的时候验证name字段是否唯一
-        array('username', 'realname'), // 填充真实姓名
+        array('username', '', '该用户名已被注册！', 0, 'unique', 1), // 在新增的时候验证name字段是否唯一     
         
         array('email', '', '该邮箱已被占用', 0, 'unique', 1), // 新增的时候email字段是否唯一
         array('mobile', '', '该手机号码已被占用', 0, 'unique', 1), // 新增的时候mobile字段是否唯一
