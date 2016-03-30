@@ -15,11 +15,11 @@ class MembersModel extends Model {
      * self::MUST_VALIDATE 或者1 必须验证
      * self::VALUE_VALIDATE或者2 值不为空的时候验证
      */
-    protected $_validate = array(
-        
+   protected $_validate = array(
+       
+        #array('nickname', 'require', '昵称不能为空！'), //默认情况下用正则进行验证
         array('username', 'require', '用户名不能为空！'), //默认情况下用正则进行验证
-        array('username', '', '该用户名已被注册！', 0, 'unique', 1), // 在新增的时候验证name字段是否唯一     
-        
+        array('username', '', '该用户名已被注册！', 0, 'unique', 1), // 在新增的时候验证name字段是否唯一
         array('email', '', '该邮箱已被占用', 0, 'unique', 1), // 新增的时候email字段是否唯一
         array('mobile', '', '该手机号码已被占用', 0, 'unique', 1), // 新增的时候mobile字段是否唯一
         // 正则验证密码 [需包含字母数字以及@*#中的一种,长度为6-22位]
@@ -31,7 +31,7 @@ class MembersModel extends Model {
         //array('agree', 'is_agree', '请先同意网站安全协议！', 1, 'callback'), // 判断是否勾选网站安全协议
         array('agree', 'require', '请先同意网站安全协议！', 1), // 判断是否勾选网站安全协议
     );
-
+       
     /**
      * 自动完成
      */
@@ -45,18 +45,10 @@ class MembersModel extends Model {
         return date('h:i:s');
     }
     protected  function getdate(){
-        return date('y:m:d');
+        return date('y-m-d');
     }
     function getip(){
-    global $ip;
-    if (getenv("HTTP_CLIENT_IP"))
-    $ip = getenv("HTTP_CLIENT_IP");
-    else if(getenv("HTTP_X_FORWARDED_FOR"))
-    $ip = getenv("HTTP_X_FORWARDED_FOR");
-    else if(getenv("REMOTE_ADDR"))
-    $ip = getenv("REMOTE_ADDR");
-    else $ip = "Unknow";
-    return $ip;
+    return '127.0.0.1';
     }
     /**
      * 判断是否同意网站安全管理协议

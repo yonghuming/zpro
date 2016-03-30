@@ -72,23 +72,36 @@ class LoginController extends Controller {
     {
         // 判断提交方式 做不同处理
         if (IS_POST) {
-            echo 'ssss';
-            // 实例化User对象
+        
             $user = D('members');
           
             // 自动验证 创建数据集
-            if (!$data = $user->create()) {
-                // 防止输出中文乱码
-             #   header("Content-type: text/html; charset=utf-8");
-                echo $user->getDbError();
+//             $rules = array(
+                 
+//                 array('username', 'require', '用户名不能为空！',1), //默认情况下用正则进行验证
+            
+//                 // 正则验证密码 [需包含字母数字以及@*#中的一种,长度为6-22位]
+//                 array('passwd', '/^([a-zA-Z0-9@*#]{6,22})$/', '密码格式不正确,请重新输入！', 1),
+//                 array('repasswd', 'passwd', '确认密码不正确', 1, 'confirm'), // 验证确认密码是否和密码一致
+//                 array('email', 'email', '邮箱格式不正确'), // 内置正则验证邮箱格式
+//                 array('mobile', '/^1[34578]\d{9}$/', '手机号码格式不正确', 1), // 正则表达式验证手机号码
+//                 array('verify', 'verify_check', '验证码错误', 1, 'function'), // 判断验证码是否正确
+//                 //array('agree', 'is_agree', '请先同意网站安全协议！', 1, 'callback'), // 判断是否勾选网站安全协议
+//                 array('agree', 'require', '请先同意网站安全协议！', 1), // 判断是否勾选网站安全协议
+//             );
+            #if (!$data = $user->validate($rules)->create()) {
+                if (!$data = $user->create()) {
                 
-            }else{
-                echo 'no error';
+                // 防止输出中文乱码
+                header("Content-type: text/html; charset=utf-8");
+                $this->error($user->getError());//没有返回错误提示
+                
             }
 
             //插入数据库
-            var_dump($_POST);
-            if ($id = $user->add($data)) {
+            trace($_POST);
+            if ($id = $user->add()) {
+                trace($user->getDBError());
                 /* 直接注册用户为学生用户*/
                 #注册成功后写用户的权限
                 #学生注册成功后为自主招生模块
@@ -98,7 +111,8 @@ class LoginController extends Controller {
                 $user->where("userid = $id")->setField('companyid', $id);
                 $this->success('注册成功', U('Index/index'), 2);
             } else {
-                echo 'error'.$user->getDbError();
+                echo 'error'.$user->getError();
+                echo $user->getLastSql();
                # $this->error('注册失败');
             }
         } else {
