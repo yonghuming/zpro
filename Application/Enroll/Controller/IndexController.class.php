@@ -32,6 +32,7 @@ class IndexController extends Controller {
         }else{
             $enroll = D('enroll');
             if($enroll->create()){
+                $enroll->uid = $_SESSION['enroll']['uid'];
                 $enroll->add();
                 $this->success('恭喜您，报名成功',U('Index/index'));
             }else{
