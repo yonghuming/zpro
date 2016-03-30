@@ -5,14 +5,21 @@ class IndexController extends Controller {
     public function _initialize(){
          
         if (!isset($_SESSION['enroll']['uid'])){
-            $this->error('请先登录',U('Login/login'));
+            echo 'hello world';
+            exit('has session');
+         #   $this->error('请先登录',U('Login/login'));
+            
+        }else{
+            echo 'no session';
+            exit();
         }
+     
     }
     public function ld(){
         $this->display();
     }
     public function index(){
-        trace($_SESSION['enroll']['uid']);
+      
         #逻辑上是，从members用户表读取用户名和手机号mobile来填充到报名表
         $enroll = D('members');
         $result = $enroll->where('id = '.$_SESSION['enroll']['uid'])->find();
