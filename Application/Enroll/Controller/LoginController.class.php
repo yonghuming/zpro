@@ -45,8 +45,8 @@ class LoginController extends Controller {
             if ($result && $result['passwd'] == $result['passwd']) {
                 // 存储session
                 session('enrolluid', $result['id']);          // 当前用户id
-                session('realname', $result['realname']);   // 当前用户昵称
-                session('username', $result['username']);   // 当前用户名
+               
+                session('enrollusername', $result['username']);   // 当前用户名
                 session('last_login', $result['last_login']);   // 上一次登录时间
                 // 上一次登录ip
 

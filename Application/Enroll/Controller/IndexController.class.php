@@ -19,11 +19,9 @@ class IndexController extends Controller {
         #逻辑上是，从members用户表读取用户名和手机号mobile来填充到报名表
         $enroll = D('members');
         $result = $enroll->where('id = '.$_SESSION['enrolluid'])->find();
-       # trace($_SESSION['enrolluid']);
-       # trace($result['contact_number1']);
+     
         
-        
-        $this->assign('username',$_SESSION['enroll']['username']);
+        $this->assign('username',$_SESSION['enrollusername']);
         $this->assign('contact_number1',$result['mobile']);
        
        $this->display();
