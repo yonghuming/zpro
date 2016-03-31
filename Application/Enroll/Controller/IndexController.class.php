@@ -5,14 +5,9 @@ class IndexController extends Controller {
     public function _initialize(){
          
         if (null == session('enrolluid')){
-           # echo 'hello world';
-         #   exit('has session');
-            #trace($_SESSION);
-            $this->error('请先登录',U('Login/login'),10000);
+        
+            $this->error('请先登录',U('Login/login'),1);
             
-        }else{
-            #trace($_SESSION);
-            $this->success('ss',U('Index/index'),10);
         }
      
     }
