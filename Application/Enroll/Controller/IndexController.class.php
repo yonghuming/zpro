@@ -15,6 +15,12 @@ class IndexController extends Controller
         }
     }
     public function upload_pic(){
+        $enroll = D('enroll');
+        $result = $enroll->where('uid = ' . $_SESSION['enrolluid'])->find();
+        if ($result && $result['id_number'] != null) {
+            $this->assign('enrolled',1);
+           
+        }
         $pic_url = D('enroll')->where('uid = '.session('enrolluid'))->getField('pic_url');
         if($pic_url){
             $this->assign('pic_url',$pic_url);
