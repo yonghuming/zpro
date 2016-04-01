@@ -85,7 +85,7 @@ class IndexController extends Controller
         if (! IS_POST) {
             $this->error();
         } else {
-            $enroll = D('enroll');
+            $enroll = D('enroll'); 
             if ($enroll->create()) {
                 $enroll->uid = $_SESSION['enrolluid'];
                 $enroll->add();
