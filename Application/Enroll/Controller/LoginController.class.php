@@ -65,7 +65,7 @@ class LoginController extends Controller
                 $this->error('登录失败,用户名或密码不正确!');
             }
         } else {
-            $this->display();
+            $this->display('login2');
         }
     }
 
