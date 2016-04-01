@@ -70,7 +70,7 @@ class IndexController extends Controller
             $enroll = D('enroll');
            
             #$pic_url = $upload->savePath.$info[0]['savename'];
-            $pic_url = $upload->rootPath.date('Y-m-d').'/'.$info['pic_url']['savename'];
+            $pic_url = '/Uploads/'.date('Y-m-d').'/'.$info['pic_url']['savename'];
            
             $this->assign('pic_url',$pic_url);
             $data['pic_url'] = $pic_url;
