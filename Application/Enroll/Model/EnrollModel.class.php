@@ -4,12 +4,22 @@ namespace Enroll\Model;
 use Think\Model;
 
 class EnrollModel extends Model{
+    protected function check_length(){
+        if (strlen(I('post.student_number')) != 19){
+            return false;
+        }else{
+            return true;
+        }
+    }
     protected $_validate = array(
        
         
 
         array('student_number','require','学籍号不能为空'),
         array('student_number','number','学籍号必须是数字'),
+       # array('verify', 'verify_check', '验证码错误', 0, 'function'), 
+        array('student_number','check_length','学籍号为19位',1,'callback'),
+
         array('id_number','require','身份证号不能为空'),
         array('id_number','check_identity','身份证格式不正确',1,'callback'),
         
@@ -24,12 +34,12 @@ class EnrollModel extends Model{
         array('student_address','require','通讯地址不能为空'),
         array('contact_number1','require','联系人1不能为空'),
        # array('contact_number2','require','不能为空'),
-        array('geography_score','require','地理分数不能为空'),
-        array('geography_score','number','地理分数必须是数字'),
+       # array('geography_score','require','地理分数不能为空'),
+      #  array('geography_score','number','地理分数必须是数字'),
         
         array('geography_level','require','地理级别不能为空'),
-        array('biologic_score','require','生物分数不能为空'),
-        array('biologic_score','number','生物分数必须是数字'),
+       # array('biologic_score','require','生物分数不能为空'),
+      #  array('biologic_score','number','生物分数必须是数字'),
         
         array('biologic_level','require','生物级别不能为空'),
         array('it_level','require','信息技术级别不能为空'),
