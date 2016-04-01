@@ -21,6 +21,9 @@ class IndexController extends Controller
         }
         $this->display();
     }
+    public function print_enroll(){
+        $this->display();
+    }
     /**
         判断有无权限
         判断是否可以编辑
@@ -28,7 +31,7 @@ class IndexController extends Controller
     public function edit(){
         $enroll = D('enroll');
             $result = $enroll->where('uid = ' . $_SESSION['enrolluid'])->find();
-           trace($_SESSION['enrolluid']);
+           
            #如果是报名了，显示报名表
            #如果没有报名，提示报名
 
@@ -88,6 +91,8 @@ class IndexController extends Controller
                 foreach ($result as $k => $v) {
                     trace($k.'=>'.$v);
                     $this->assign("$k", $v);
+                    
+                    
 
                 }                
                     $this->display();
@@ -124,7 +129,8 @@ class IndexController extends Controller
             if ($enroll->create()) {
                 $enroll->uid = $_SESSION['enrolluid'];
                 $enroll->add();
-                $this->success('恭喜您，报名成功', U('Index/index'));
+                trace($_POST);
+                $this->success('恭喜您，报名成功', U('Index/index'),100);
             } else {
                 $this->error($enroll->getError());
             }

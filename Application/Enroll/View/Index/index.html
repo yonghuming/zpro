@@ -6,142 +6,134 @@
 				<li>
 				<a href="__URL__/index">报名 <span class="sr-only">(current)</span></a></li>
 				<li><a href="__URL__/upload_pic">上传照片</a></li>
-				<li><a href="#">打印报名表</a></li>
-				<li><a href="#">Export</a></li>
+			
 			</ul>
 
 		</div>
 		<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 			<div class="row">
 				<if condition="$enrolled eq 0">
-				未报名
+				<div class="col-sm-6">
+					<a href="__URL__/insert" class='btn button-success'>报名</a>
+				</div>
 				<else />
 				<legend>
-					<h2>已经报名</h2>
+					<h2>青岛十七中2016年自主招生报名信息表</h2>
 
 				</legend>
-				<table class='table table-responsive'>
+				<table class=' table-bordered table-striped table-hover table-condensed'>
 				
 					<tr>
+						<th colspan='6'>基础信息</th>
+					</tr>
+					<tr>
+					
 						<td>姓名</td>
 						<td>{$student_name}</td>
 						<td>学籍号</td>
 						<td>{$student_number}</td>
-						<td>身份证号</td>
-						<td>{$id_number}</td>
+						
+						<td rowspan='4'><img  width='100' src="__ROOT__{$pic_url}" alt="" /></td>
 					</tr>
 					<tr>
 						<td>在校职务</td>
 						<td>{$student_duty}</td>
 						<td>毕业学校</td>
 						<td>{$graduation_school}</td>
-						<td>性别</td>
+						
+					</tr>
+					<tr>
+					<td>性别</td>
 						<td>{$student_sex}</td>
+						<td>身份证号</td>
+						<td>{$id_number}</td>
 					</tr>
 					<tr>
 						<td>民族</td>
 						<td>{$student_race}</td>
 						<td>政治面貌</td>
-						<td>{$political_status}</td>
+						<td colspan='2'>{$political_status}</td>
+						
+						
+						
+					</tr>
+					<tr>
 						<td>出生日期</td>
 						<td>{$student_birth}</td>
+						<td>联系电话1</td>
+						<td colspan='2'>{$contact_number1}</td>
+						
 					</tr>
 					<tr>
 						<td>邮政编码</td>
 						<td>{$zipcode}</td>
-						<td>通讯地址</td>
-						<td>{$student_address}</td>
-						<td>联系电话1</td>
-						<td>{$contact_number1}</td>
-					</tr>
-					<tr>
 						<td>联系电话2</td>
-						<td>{$contact_number2}</td>
-						<td>地理成绩</td>
-						<td>{$geography_score}</td>
-						<td>地理等级</td>
-						<td>{$geography_level}</td>
+						<td colspan='2'>{$contact_number2}</td>
+						
+						
 					</tr>
 					<tr>
-						<td>生物成绩</td>
-						<td>{$biologic_score}</td>
-						<td>生物等级</td>
-						<td>{$geography_level}</td>
-						<td>信息技术等级</td>
-						<td>{$it_level}</td>
-					</tr>				
-					
-				</table>
-				<div class="form-group col-sm-10">
-						<table class="table table-responsive">
-							<tr>
-								<td class="col-sm-2">类别</td>
-								<td class="col-sm-2">姓名</td>
-								<td class="col-sm-2">联系手机</td>
-								<td>工作单位</td>
+					<td >通讯地址</td>
+						<td colspan='4'>{$student_address}</td>
+						
+						
+					</tr>
+					<tr>
+						<th colspan='6'>监护人信息</th>
+					</tr>
+								<tr>
+								<th class="col-sm-2">类别</th>
+								<th class="col-sm-2">姓名</th>
+								<th class="col-sm-2">联系手机</th>
+								<th colspan='2'>工作单位</th>
 							</tr>
 							<tr>
 								<td>第一监护人</td>
-								<td><input disabled type="text" class="form-control"
-									id="guarder1_name" name="guarder1_name"
-									value="{$guarder1_name}" placeholder="请输入姓名"></td>
-								<td><input disabled type="text" class="form-control"
-									id="guarder1_tel" name="guarder1_tel" value="{$guarder1_tel}"
-									placeholder="请输入手机"></td>
-								<td><input disabled type="text" class="form-control"
-									id="guarder1_address" name="guarder1_address"
-									value='{$guarder1_address}' placeholder="请输入单位"></td>
+								<td>
+									{$guarder1_name} </td>
+								<td> {$guarder1_tel}
+									</td>
+								<td colspan='2'>
+									{$guarder1_address} </td>
+									
 							</tr>
 							<tr>
 								<td>第二监护人</td>
-								<td><input disabled type="text" class="form-control"
-									id="guarder2_name" name="guarder2_name"
-									value="{$guarder2_name}" placeholder="请输入姓名"></td>
-								<td><input disabled type="text" class="form-control"
-									id="guarder2_tel" name="guarder2_tel" value="{$guarder2_tel}"
-									placeholder="请输入手机"></td>
-								<td><input disabled type="text" class="form-control"
-									id="guarder2_address" name="guarder2_address"
-									value='{$guarder2_address}' placeholder="请输入单位"></td>
+								<td>
+									{$guarder2_name} </td>
+								<td>{$guarder2_tel}
+									</td>
+								<td colspan='2'>
+									{$guarder2_address} </td>
 							</tr>
-
-						</table>
-
-						<legend>初中所获荣誉 填写成绩最高的三类</legend>
-						<div class="form-group col-sm-10">
-						<table class="table table-responsive table-striped">
-							<tr>
-								<td>序号</td>
-								<td>获奖内容</td>
-							</tr>
-							<tr>
-								<td>1</td>
-								<td><input type="text" class="form-control"
-									id="hornor1" name="hornor1"
-									value="{$hornor1}" placeholder="请输入所获荣誉"></td>
-							</tr>
-							<tr>
-								<td>2</td>
-								<td><input type="text" class="form-control"
-									id="hornor2" name="hornor2"
-									value="{$hornor2}" placeholder="请输入所获荣誉"></td>
-							</tr>
-							<tr>
-								<td>3</td>
-								<td><input type="text" class="form-control"
-									id="hornor3" name="hornor3"
-									value="{$hornor3}" placeholder="请输入所获荣誉"></td>
-							</tr>
-							
-						</table>
-						</div>
-						<legend>初中成绩排名</legend>
-							<div class="form-group col-sm-10">
-						<table class="table table-responsive table-striped">
-								<tr>
-									<td colspan='2'>初一</td>
-									<td colspan='2'>初二</td>
-									<td>初三</td>
+					<!-- end changshi -->
+					<tr>
+						<th colspan='6'>会考成绩</th>
+					</tr>
+					<tr>
+						<th>地理成绩</th>
+						<th>地理等级</th>
+						<th>生物成绩</th>
+						<th>生物等级</th>
+						<th >信息技术等级</th>
+					</tr>
+					<tr>
+						<td>{$geography_score}</td>
+						<td>{$geography_level}</td>
+						<td>{$biologic_score}</td>
+						<td>{$geography_level}</td>
+						<td colspan='3'>{$it_level}</td>
+					</tr>
+					
+						
+					<!-- changshi  -->		
+					<tr>
+						<th colspan='6'>初中成绩排名</th>
+					</tr>
+					<tr>
+									<th colspan='2'>初一</th>
+									<th colspan='2'>初二</th>
+									<th>初三</th>
 									
 								</tr>
 								<tr>
@@ -152,30 +144,43 @@
 									<td>初三上学期</td>
 								</tr>
 								<tr>
-									<td><input type="number" class="form-control"
-									id="g1st" name="g1st"
-									value="{$g1st}" placeholder="请输入排名"></td>
-									<td><input type="number" class="form-control"
-									id="g1nd" name="g1nd"
-									value="{$g1nd}" placeholder="请输入排名"></td>
-									<td><input type="number" class="form-control"
-									id="g2st" name="g2st"
-									value="{$g2st}" placeholder="请输入排名"></td>
-									<td><input type="number" class="form-control"
-									id="g2nd" name="g2nd"
-									value="{$g2nd}" placeholder="请输入排名"></td>
-									<td><input type="number" class="form-control"
-									id="g3st" name="g3st"
-									value="{$g3st}" placeholder="请输入排名"></td>
+									<td>{$g1st}</td>
+									<td>{$g1nd}</td>
+									<td>{$g2st}</td>
+									<td>{$g2nd}</td>
+									<td>{$g3st}</td>
 								</tr>
-							</table>
-						</div>
+					
+					<tr>
+						<th colspan='6'>初中所获成果</th>
+					</tr>
+				
+					<tr>
+								<td>序号</td>
+								<td colspan='4'>获奖内容</td>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td colspan='4'>{$hornor1}</td>
+							</tr>
+							<tr>
+								<td>2</td>
+								<td colspan='4'>{$hornor2}</td>
+							</tr>
+							<tr>
+								<td>3</td>
+								<td colspan='4'>{$hornor3}</td>
+							</tr>
+				</table>
+				
+				
+						
 					</div>
+					<br>
 					<div class="form-group col-sm-10">
-						
-						<a class="btn btn-success" href="__URL__/edit" role="button">修改</a>
-					</div>
-						
+						<div class="col-sm-offset-2 col-sm-10">
+							<a class="btn btn-success" href="__URL__/edit" role="button">修改</a>
+						</div>
 					</div>
 
 				</if>
