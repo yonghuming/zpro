@@ -14,6 +14,15 @@ class IndexController extends Controller
             $this->error('请先登录', U('Login/login'));
         }
     }
+    public function check_in(){
+        $this->display();
+    }
+    public function confirm(){
+        $this->display();
+    }
+    public function print_info(){
+        $this->display();
+    }
     public function upload_pic(){
         $enroll = D('enroll');
         $result = $enroll->where('uid = ' . $_SESSION['enrolluid'])->find();
