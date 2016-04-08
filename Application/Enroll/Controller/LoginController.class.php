@@ -8,6 +8,7 @@
 namespace Enroll\Controller;
 
 use Think\Controller;
+use Think\Auth;
 
 /**
  * Class LoginController
@@ -60,7 +61,16 @@ class LoginController extends Controller
                 // 更新用户登录信息
                 trace($_SESSION);
                 
-                $this->success('登录成功,正跳转至系统首页...', U('Index/index'),1);
+                $auth = new Auth();
+                
+                if(!$auth->check('confirm',session('enrolluid'))){
+                    $this->success('登录成功,正跳转至系统首页...', U('Index/index'),1);
+                }else{
+                    $this->success('登录成功,正跳转至系统首页...', U('Index/check_in'),1);
+                }
+                
+                
+               
             } else {
                 $this->error('登录失败,用户名或密码不正确!');
             }

@@ -2,6 +2,7 @@
 namespace Enroll\Controller;
 
 use Think\Controller;
+use Think\Auth;
 
 /**
  * @author langx
@@ -12,6 +13,9 @@ class IndexController extends Controller
 
     public function _initialize()
     {
+       
+        
+        
         if (null == session('enrolluid')) {
             
             $this->error('请先登录', U('Login/login'));
@@ -20,9 +24,17 @@ class IndexController extends Controller
 
     public function check_in()
     {
+        $auth = new Auth();
+        
+        
+        if(!$auth->check('confirm',session('enrolluid'))){
+            $this->error('没有权限');
+        }
+       
         if (! IS_POST) {
             $this->display();
         } else {
+            
             $enroll = D('enroll');
             $result = $enroll->where('uid = ' . I('post.query_id'))->find();
              
@@ -54,26 +66,21 @@ class IndexController extends Controller
      * 
      * 对于修改的人，重新分配序号
      * 
-     * 
+     * 确认，看当前系统有多少人，当前人数加1，作为序号，
      * */
     public function print_info()
     {
-        
-            
+            $auth = new Auth();
+
+			if(!$auth->check('confirm',session('enrolluid'))){
+			    $this->error('没有权限');
+			}
         
             $enroll = D('enroll');
             $result = $enroll->where('uid = ' . I('get.id'))->find();
              //重复操作
-            $confirm = D('confirm');
-            $data['uid'] = I('get.id');
-            $rst = $confirm->add($data);
-            
-            if($rst){
-                $confirm->where('id = '.I('get.id'))->getField('id');
-                $this->assign('confirm_id',$id);
-            }else{
-                $this->error();
-            }
+            $enroll->confirmed = '1';
+            $enroll->where('uid = '. I('get.id'))->save();
             
             if ($result && $result['id_number'] != null) {
                 $this->assign('enrolled', 1);
@@ -81,7 +88,7 @@ class IndexController extends Controller
                     trace($k . '=>' . $v);
                     $this->assign("$k", $v);
                 }
-                trace($result);
+              
                 $this->display();
             }else{
                 $this->error();
@@ -108,11 +115,7 @@ class IndexController extends Controller
         $this->display();
     }
 
-    public function print_enroll()
-    {
-        $this->display();
-    }
-
+ 
     /**
      * 判断有无权限
      * 判断是否可以编辑

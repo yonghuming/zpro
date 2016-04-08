@@ -8,6 +8,7 @@
 
 namespace Enroll\Model;
 use Think\Model;
+use Think\Auth;
 
 class LoginModel extends Model {
     // 重新定义表
