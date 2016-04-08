@@ -9,6 +9,7 @@
     <script src="__PUBLIC__/js/vendor/holder.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="__PUBLIC__/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="__PUBLIC__/js/jqprint.js"></script>
     <script type="text/javascript">
       
    
@@ -25,6 +26,10 @@
         $("[href='__ACTION__<?php echo  ''; ?>']").parent().addClass('active');
 
       });
+      
+      function  a(){
+          $("#print").jqprint();
+      }
     </script>
   </body>
 </html>

@@ -1,0 +1,41 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>ThinkPHP Ajax 实现示例</title>
+<load href="__PUBLIC__/Js/Base.js" />
+<load href="__PUBLIC__/Js/prototype.js" />
+<load href="__PUBLIC__/Js/mootools.js" />
+<load href="__PUBLIC__/Js/Ajax/ThinkAjax.js" />
+<script language="JavaScript">
+<!--
+function checkName(){
+	ThinkAjax.send('__URL__/checkName','ajax=1&username='+$('username').value,'','result');
+}
+function loginCheck(){
+	ThinkAjax.sendForm('form1','__URL__/checkLogin',complete,'result');
+}
+
+function complete(data,status){
+	if (status==1)
+	{
+	// 提示信息
+	$('list').innerHTML = '<span style="color:blue">'+data+'你好!</span>';
+	}
+}
+//-->
+</script>
+</head>
+<body>
+<div>
+<div id="result"></div>
+<div id="list"></div>
+<form name="login" id="form1" method="post">
+用户名: <input type="text" name="username" />
+<input type="button" value="检查用户名" onClick="checkName()"><br />
+密 码: <input type="password" name="password" /><br />
+<input type="button" onClick="loginCheck()" value="提 交" />
+</form>
+</div>
+</body>
+</html>
