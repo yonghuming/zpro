@@ -49,9 +49,9 @@ class EnrollModel extends Model{
       #  array('guarder2_tel','require','不能为空'),
         array('guarder1_address','require','第一监护人地址不能为空'),
         
-        array('contact_number1', '/^1[34578]\d{9}$/', '手机号码格式不正确', 0),
-        array('contact_number2', '/^1[34578]\d{9}$/', '手机号码格式不正确', 0),
-        array('guarder1_tel', '/^1[34578]\d{9}$/', '手机号码格式不正确', 0),
+        array('contact_number1', '/^1[34578]\d{9}$/', '联系人1手机号码格式不正确', 0),
+        array('contact_number2', '/^1[34578]\d{9}$/', '联系人2手机号码格式不正确', 0),
+        array('guarder1_tel', '/^1[34578]\d{9}$/', '第一监护人手机号码格式不正确', 0),
         
    #     array('guarder2_address','require','不能为空'),
         #array('pic_url','require','不能为空'),
