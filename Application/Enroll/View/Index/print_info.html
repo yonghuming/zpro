@@ -17,32 +17,34 @@
 					<h2>青岛十七中2016年自主招生报名信息确认表</h2>
 
 				</legend>
-			
-				报名序号：{$confirm_id}
-				
+				打印时间
+				<?php echo date('Y-m-d h:i:s');?>
 				&nbsp; 
-				<table class=' table-bordered table-striped table-hover table-condensed'>
-				
+				<table
+					class=' table-bordered table-striped table-hover table-condensed'>
+
 					<tr>
 						<th colspan='6'>基础信息</th>
 					</tr>
 					<tr>
-					
+
 						<td>姓名</td>
 						<td>{$student_name}</td>
 						<td>学籍号</td>
 						<td>{$student_number}</td>
-						
-						<td rowspan='4'><img  width='100' src="__ROOT__{$pic_url}" alt="" /></td>
+
+						<td rowspan='4'><img width='100' src="__ROOT__{$pic_url}"
+							alt="" /></td>
 					</tr>
 					<tr>
 						<td>在校职务</td>
 						<td>{$student_duty}</td>
 						<td>毕业学校</td>
-						<td>{$graduation_school}</td>						
+						<td>{$graduation_school}</td>
+
 					</tr>
 					<tr>
-					<td>性别</td>
+						<td>性别</td>
 						<td>{$student_sex}</td>
 						<td>身份证号</td>
 						<td>{$id_number}</td>
@@ -51,114 +53,124 @@
 						<td>民族</td>
 						<td>{$student_race}</td>
 						<td>政治面貌</td>
-						<td colspan='2'>{$political_status}</td>	
-						
-						
+						<td colspan='2'>{$political_status}</td>
+
+
+
 					</tr>
 					<tr>
 						<td>出生日期</td>
 						<td>{$student_birth}</td>
-						<td>是否应届毕业生</td>
+						<td>联系电话1</td>
 						<td colspan='2'>{$contact_number1}</td>
-						
+
 					</tr>
 					<tr>
-						
-						
-						
-						
-					</tr>
-					<tr>
-					<td >通讯地址</td>
-						<td colspan='2'>{$student_address}</td>
+						<td>邮政编码</td>
+						<td>{$zipcode}</td>
 						<td>联系电话2</td>
 						<td colspan='2'>{$contact_number2}</td>
-						
-						
-					</tr>				
-								<tr>
-								<th rowspan='3'>监护人<br>信息</th>
-								<th>称谓</th>
-								<th >姓名</th>
-								<th>联系手机</th>
-								<th>工作单位</th>
-							</tr>
-							<tr>
-								<td>{$guarder1_greet}</td>
-								<td>
-									{$guarder1_name} </td>
-								<td> {$guarder1_tel}
-									</td>
-								<td>
-									{$guarder1_address} </td>
-									
-							</tr>
-							<tr>
-								<td>{$guarder2_greet}</td>
-								<td>
-									{$guarder2_name} </td>
-								<td>{$guarder2_tel}
-									</td>
-								<td>
-									{$guarder2_address} </td>
-							</tr>
+
+
+					</tr>
+					<tr>
+						<td>通讯地址</td>
+						<td colspan='4'>{$student_address}</td>
+
+
+					</tr>
+					<tr>
+						<th colspan='6'>监护人信息</th>
+					</tr>
+					<tr>
+						<th class="col-sm-2">类别</th>
+						<th class="col-sm-2">姓名</th>
+						<th class="col-sm-2">联系手机</th>
+						<th colspan='2'>工作单位</th>
+					</tr>
+					<tr>
+						<td>第一监护人</td>
+						<td>{$guarder1_name}</td>
+						<td>{$guarder1_tel}</td>
+						<td colspan='2'>{$guarder1_address}</td>
+
+					</tr>
+					<tr>
+						<td>第二监护人</td>
+						<td>{$guarder2_name}</td>
+						<td>{$guarder2_tel}</td>
+						<td colspan='2'>{$guarder2_address}</td>
+					</tr>
 					<!-- end changshi -->
-					
 					<tr>
-						<th rowspan='2'>学业水<br>平等级</th>
+						<th colspan='6'>会考成绩</th>
+					</tr>
+					<tr>
+						<th>地理成绩</th>
 						<th>地理等级</th>
-						
+						<th>生物成绩</th>
 						<th>生物等级</th>
-						<th colspan='2'>信息技术等级</th>
+						<th>信息技术等级</th>
 					</tr>
 					<tr>
-						
+						<td>{$geography_score}</td>
 						<td>{$geography_level}</td>
-						
+						<td>{$biologic_score}</td>
 						<td>{$geography_level}</td>
-						<td  colspan='2'>{$it_level}</td>
+						<td colspan='3'>{$it_level}</td>
 					</tr>
-					
-						
-					<!-- changshi  -->		
-					
-					
+
+
+					<!-- changshi  -->
 					<tr>
-						<th colspan='6'>初中阶段发展标志性成果(含综合荣誉称号)</th>
+						<th colspan='6'>初中成绩排名</th>
 					</tr>
-				
 					<tr>
-								<td>序号</td>
-								<td colspan='4'>获奖内容</td>
-							</tr>
-							<tr>
-								<td>1</td>
-								<td colspan='4'>{$hornor1}</td>
-							</tr>
-							<tr>
-								<td>2</td>
-								<td colspan='4'>{$hornor2}</td>
-							</tr>
-							<tr>
-								<td>3</td>
-								<td colspan='4'>{$hornor3}</td>
-							</tr>
-							
-						
-							
-							
+						<th colspan='2'>初一</th>
+						<th colspan='2'>初二</th>
+						<th>初三</th>
+
+					</tr>
+					<tr>
+						<td>初一上学期</td>
+						<td>初一下学期</td>
+						<td>初二上学期</td>
+						<td>初二下学期</td>
+						<td>初三上学期</td>
+					</tr>
+					<tr>
+						<td>{$g1st}</td>
+						<td>{$g1nd}</td>
+						<td>{$g2st}</td>
+						<td>{$g2nd}</td>
+						<td>{$g3st}</td>
+					</tr>
+
+					<tr>
+						<th colspan='6'>初中所获成果</th>
+					</tr>
+
+					<tr>
+						<td>序号</td>
+						<td colspan='4'>获奖内容</td>
+					</tr>
+					<tr>
+						<td>1</td>
+						<td colspan='4'>{$hornor1}</td>
+					</tr>
+					<tr>
+						<td>2</td>
+						<td colspan='4'>{$hornor2}</td>
+					</tr>
+					<tr>
+						<td>3</td>
+						<td colspan='4'>{$hornor3}</td>
+					</tr>
 				</table>
-				
-				
-			
 
 
 
 			</div>
-			<br>
-			
-			<div class="col-sm-offset-2">打印时间
-				<span id="print_time"></span>&nbsp;&nbsp;&nbsp;&nbsp;考生签字:___________</div>
 			<input type="button" onclick="a()" value="打印"/>
 		</div>
 		<script type="text/javascript">

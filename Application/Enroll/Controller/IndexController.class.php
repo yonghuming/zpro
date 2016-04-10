@@ -35,12 +35,8 @@ class IndexController extends Controller
             $this->display();
         } else {
             
-            $id = I('post.query_id') - 1700 + 1486;
-            
-            
-            
             $enroll = D('enroll');
-            $result = $enroll->where('uid = ' . $id)->find();
+            $result = $enroll->where('uid = ' . I('post.query_id'))->find();
              
             
             if ($result && $result['id_number'] != null) {
@@ -61,7 +57,7 @@ class IndexController extends Controller
 
     public function confirm()
     {
-        $this->display('confirm2');
+        $this->display();
     }
     /**
      * 记录当前共确认多少人
@@ -81,28 +77,10 @@ class IndexController extends Controller
 			}
         
             $enroll = D('enroll');
-            
             $result = $enroll->where('uid = ' . I('get.id'))->find();
              //重复操作
             $enroll->confirmed = '1';
             $enroll->where('uid = '. I('get.id'))->save();
-            
-            
-            //在报名确认表里添加记录
-            //id，报名序号，用户id
-            //如果已经有了就不再更改
-            $id = I('get.id');
-            
-            $confirm = D('confirm');
-            $confirm_id = $confirm->where('uid = '. $id)->getField('id');
-            if(!$confirm_id){
-                $data['uid'] = I('get.id');
-                $confirm->add($data);
-            }
-            $confirm_id = $confirm->where('uid = '. $id )->getField('id');
-            $this->assign('confirm_id', $this->confirm_id( $confirm_id ) );
-            
-            
             
             if ($result && $result['id_number'] != null) {
                 $this->assign('enrolled', 1);
@@ -121,19 +99,6 @@ class IndexController extends Controller
         //生成报名号
         //生成考场信息
        // $this->display();
-    }
-    public function confirm_id($confirm_id){
-        switch ( $confirm_id ) {
-            case $confirm_id < 10:
-                return '00' . $confirm_id;
-                break;
-            case $confirm_id < 100 :
-                return '0' . $confirm_id;
-                break;
-            default :
-                return  $confirm_id;
-                break;
-        }
     }
 
     public function upload_pic()
@@ -169,9 +134,9 @@ class IndexController extends Controller
                 trace($k . '=>' . $v);
                 $this->assign("$k", $v);
             }
-            $this->display('edit2');
+            $this->display();
         } else {
-            $this->display('insert');
+            $this->display();
         }
     }
 
@@ -209,7 +174,6 @@ class IndexController extends Controller
 
     public function index()
     {
-        trace(date('m'));
         if (! IS_POST) {
             
           

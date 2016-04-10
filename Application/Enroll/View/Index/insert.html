@@ -209,27 +209,14 @@
 						</div>
 					</div>
 
-				
-
-					
-
 					<div class="form-group col-sm-5">
-						<label for="contact_number1" class="col-sm-3 control-label">是否为高中应届生</label>
+						<label for="zipcode" class="col-sm-3 control-label">邮政编码</label>
 						<div class="col-sm-9">
-							
-								
-								<select class="form-control" name='contact_number1'
-								placeholder="是否为应届生">
-								
-									<option value='是'>是</option>
-								<option value='否'>否</option>
-
-							</select>
+							<input type="text" class="form-control" id="zipcode"
+								name="zipcode" value='{$zipcode}' placeholder="请输入邮政编码">
 						</div>
 					</div>
 
-					
-					
 					<div class="form-group col-sm-5">
 						<label for="student_address" class="col-sm-3 control-label">通讯地址</label>
 						<div class="col-sm-9">
@@ -238,17 +225,34 @@
 								placeholder="请输入通讯地址">
 						</div>
 					</div>
-					
+
+					<div class="form-group col-sm-5">
+						<label for="contact_number1" class="col-sm-3 control-label">联系电话1</label>
+						<div class="col-sm-9">
+							<input type="text" class="form-control" id="contact_number1"
+								name="contact_number1" value="{$contact_number1}"
+								placeholder="请输入联系电话1">
+						</div>
+					</div>
+
 					<div class="form-group col-sm-5">
 						<label for="contact_number2" class="col-sm-3 control-label">联系电话2</label>
 						<div class="col-sm-9">
 							<input type="text" class="form-control" id="contact_number2"
-								name="contact_number2" value="{$contact_number2}"
+								name="contact_number2" value="{$contact_number1}"
 								placeholder="请输入联系电话2">
 						</div>
 					</div>
-					
-			
+
+					<div class="form-group col-sm-5">
+						<label for="geography_score" class="col-sm-3 control-label">地理成绩</label>
+						<div class="col-sm-9">
+							<input type="text" class="form-control" id="geography_score"
+								name="geography_score" value="{$geography_score}"
+								placeholder="请输入地理成绩">
+						</div>
+					</div>
+
 					<div class="form-group col-sm-5">
 						<label for="geography_level" class="col-sm-3 control-label">地理等级</label>
 						<div class="col-sm-9">
@@ -259,6 +263,17 @@
 								<option value='B'>B</option>
 
 							</select>
+						</div>
+					</div>
+
+
+
+					<div class="form-group col-sm-5">
+						<label for="biologic_score" class="col-sm-3 control-label">生物成绩</label>
+						<div class="col-sm-9">
+							<input type="text" class="form-control" id="biologic_score"
+								name="biologic_score" value="{$geography_score}"
+								placeholder="请输入生物成绩">
 						</div>
 					</div>
 
@@ -289,54 +304,45 @@
 							</select>
 						</div>
 					</div>
-			
+
 					<div class="form-group col-sm-10">
 						<table class="table table-responsive">
-						<legend>
-								监护人信息
-							</legend>
 							<tr>
-								
-								<td class="col-sm-2">称谓</td>
+								<td class="col-sm-2">类别</td>
 								<td class="col-sm-2">姓名</td>
-								
-								<td>工作单位</td>
 								<td class="col-sm-2">联系手机</td>
+								<td>工作单位</td>
 							</tr>
 							<tr>
-								<td><input type="text" class="form-control"
-									id="guarder1_greet" name="guarder1_greet"
-									value="{$guarder1_greet}" placeholder="请输入称谓"></td>
+								<td>第一监护人</td>
 								<td><input type="text" class="form-control"
 									id="guarder1_name" name="guarder1_name"
 									value="{$guarder1_name}" placeholder="请输入姓名"></td>
-									<td><input type="text" class="form-control"
-									id="guarder1_address" name="guarder1_address"
-									value='{$guarder1_address}' placeholder="请输入单位"></td>
 								<td><input type="text" class="form-control"
 									id="guarder1_tel" name="guarder1_tel" value="{$guarder1_tel}"
 									placeholder="请输入手机"></td>
-								
+								<td><input type="text" class="form-control"
+									id="guarder1_address" name="guarder1_address"
+									value='{$guarder1_address}' placeholder="请输入单位"></td>
 							</tr>
-							
+							<legend>
+								监护人信息
+							</legend>
 							<tr>
-							<td><input type="text" class="form-control"
-									id="guarder2_greet" name="guarder2_greet"
-									value="{$guarder2_greet}" placeholder="请输入称谓"></td>
+								<td>第二监护人</td>
 								<td><input type="text" class="form-control"
 									id="guarder2_name" name="guarder2_name"
 									value="{$guarder2_name}" placeholder="请输入姓名"></td>
-										<td><input type="text" class="form-control"
-									id="guarder2_address" name="guarder2_address"
-									value='{$guarder2_address}' placeholder="请输入单位"></td>
 								<td><input type="text" class="form-control"
 									id="guarder2_tel" name="guarder2_tel" value="{$guarder2_tel}"
 									placeholder="请输入手机"></td>
-							
+								<td><input type="text" class="form-control"
+									id="guarder2_address" name="guarder2_address"
+									value='{$guarder2_address}' placeholder="请输入单位"></td>
 							</tr>
 							
 						</table>
-						<legend>初中阶段发展标志性成果(含综合荣誉称号)</legend>
+						<legend>初中所获荣誉 填写成绩最高的三类</legend>
 						<div class="form-group col-sm-10">
 						<table class="table table-responsive table-striped">
 							<tr>
@@ -364,8 +370,41 @@
 							
 						</table>
 						</div>
-
-							
+						<legend>初中成绩</legend>
+							<div class="form-group col-sm-10">
+						<table class="table table-responsive table-striped">
+								<tr>
+									<td colspan='2'>初一</td>
+									<td colspan='2'>初二</td>
+									<td>初三</td>
+									
+								</tr>
+								<tr>
+									<td>初一上学期</td>
+									<td>初一下学期</td>
+									<td>初二上学期</td>
+									<td>初二下学期</td>
+									<td>初三上学期</td>
+								</tr>
+								<tr>
+									<td><input type="number" class="form-control"
+									id="g1st" name="g1st"
+									value="{$g1st}" placeholder="请输入成绩"></td>
+									<td><input type="number" class="form-control"
+									id="g1nd" name="g1nd"
+									value="{$g1nd}" placeholder="请输入成绩"></td>
+									<td><input type="number" class="form-control"
+									id="g2st" name="g2st"
+									value="{$g2st}" placeholder="请输入成绩"></td>
+									<td><input type="number" class="form-control"
+									id="g2nd" name="g2nd"
+									value="{$g2nd}" placeholder="请输入成绩"></td>
+									<td><input type="number" class="form-control"
+									id="g3st" name="g3st"
+									value="{$g3st}" placeholder="请输入成绩"></td>
+								</tr>
+							</table>
+						</div>
 					</div>
 					<div class="form-group col-sm-12">
 						<div class="col-sm-offset-2 col-sm-10">
