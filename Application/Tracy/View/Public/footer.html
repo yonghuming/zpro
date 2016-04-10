@@ -13,26 +13,10 @@
     <script type="text/javascript">
       
    
-      $(document).ready(function(){
-        $("[name='graduation_school']").val('<?php echo $graduation_school;?>');
-        $("[name='student_sex']").val('<?php echo $student_sex;?>');
-        $("[name='student_race']").val('<?php echo $student_race;?>');
-        $("[name='biologic_level']").val('<?php echo $biologic_level;?>');
-        $("[name='it_level']").val('<?php echo $it_level;?>');
-        $("[name='geography_level']").val('<?php echo $geography_level;?>');
-        $("[name='political_status']").val('<?php echo $political_status;?>');
-    /*    动态设置菜单高亮*/
-        $("ul.nav li").removeClass('active');
-        $("[href='__ACTION__<?php echo  ''; ?>']").parent().addClass('active');
-
-      });
+    
       
       function  a(){
-    	  var mydate = new Date();
-    	  var t=mydate.toLocaleString();
-    	  $('#print_time').text(t);
           $("#print").jqprint();
-          
       }
     </script>
   </body>

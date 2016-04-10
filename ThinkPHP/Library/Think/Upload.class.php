@@ -21,7 +21,7 @@ class Upload {
         'autoSub'       =>  true, //自动子目录保存文件
         'subName'       =>  array('date', 'Y-m-d'), //子目录创建方式，[0]-函数名，[1]-参数，多个参数使用数组
         'rootPath'      =>  './Uploads/', //保存根路径
-        'savePath'      =>  '', //保存路径
+        'savePath'      =>  '', //保存路径 ??
         'saveName'      =>  array('uniqid', ''), //上传文件命名规则，[0]-函数名，[1]-参数，多个参数使用数组
         'saveExt'       =>  '', //文件保存后缀，空则使用原后缀
         'replace'       =>  false, //存在同名是否覆盖
@@ -50,17 +50,22 @@ class Upload {
      */
     public function __construct($config = array(), $driver = '', $driverConfig = null){
         /* 获取配置 */
-        $this->config   =   array_merge($this->config, $config);
+        $this->config   =   array_merge($this->config, $config); #重复键值如何处理
+        # 每日一问
+        # array_merge
+        # 实际是怎么工作的？
 
         /* 设置上传驱动 */
         $this->setDriver($driver, $driverConfig);
 
         /* 调整配置，把字符串配置参数转换为数组 */
+        # 为何转换为数组
         if(!empty($this->config['mimes'])){
             if(is_string($this->mimes)) {
                 $this->config['mimes'] = explode(',', $this->mimes);
             }
             $this->config['mimes'] = array_map('strtolower', $this->mimes);
+            # array_map
         }
         if(!empty($this->config['exts'])){
             if (is_string($this->exts)){
@@ -74,6 +79,8 @@ class Upload {
      * 使用 $this->name 获取配置
      * @param  string $name 配置名称
      * @return multitype    配置值
+     * getter setter 简化属性配置 
+     * 利用key=>value 数组
      */
     public function __get($name) {
         return $this->config[$name];
@@ -84,12 +91,13 @@ class Upload {
             $this->config[$name] = $value;
             if($name == 'driverConfig'){
                 //改变驱动配置后重置上传驱动
+                #驱动配置有哪些，
                 //注意：必须选改变驱动然后再改变驱动配置
                 $this->setDriver(); 
             }
         }
     }
-
+    # 类似于 __clone的工作方式，当类内部调用isset的时候自动调用
     public function __isset($name){
         return isset($this->config[$name]);
     }
@@ -117,9 +125,9 @@ class Upload {
      * @param 文件信息数组 $files ，通常是 $_FILES数组
      */
     public function upload($files='') {
-        if('' === $files){
+        if('' === $files){ # 为何是三个 =
             $files  =   $_FILES;
-        }
+        } # 如果没有指定要上传的文件，就上传 $_FILES 数组的文件
         if(empty($files)){
             $this->error = '没有上传的文件！';
             return false;
@@ -254,7 +262,11 @@ class Upload {
         $driver = $driver ? : ($this->driver       ? : C('FILE_UPLOAD_TYPE'));
         $config = $config ? : ($this->driverConfig ? : C('UPLOAD_TYPE_CONFIG'));
         $class = strpos($driver,'\\')? $driver : 'Think\\Upload\\Driver\\'.ucfirst(strtolower($driver));
+        # strpos
+        # ucfirst
+        # strtolower
         $this->uploader = new $class($config);
+        # new $class($config);
         if(!$this->uploader){
             E("不存在上传驱动：{$name}");
         }

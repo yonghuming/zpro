@@ -1,0 +1,21 @@
+<div class="container">
+	<div class="row">
+		<div class="col-sm-5">
+			<form action="__URL__/setClass" class="form" method='post'>
+				<select name="class" id="class">
+					<volist name='classes' id='class'>
+						<option value="{$key}">{$class}</option>
+					</volist>
+				</select>
+			<input type="submit" value='设置'/>
+			</form>
+			
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-12">
+			<a href="{:U('Index/lists')}">作业展示</a>
+		</div>
+	</div>
+
+</div>

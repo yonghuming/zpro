@@ -1,0 +1,61 @@
+
+
+<div class="container-fluid">
+	<div class="row">
+	
+		<div class="col-sm-9 col-md-10  main">
+		
+			
+			<div class="row">
+
+				<form class="form-horizontal" enctype="multipart/form-data"
+					action="__URL__/upload" method="post">
+					<legend class='col-sm-6 col-sm-offset-3'>请同学们上传个人作品</legend>
+					<div class="form-group col-sm-12">
+						<label for="student_number" class="col-sm-3 control-label">请输入你的机器号</label>
+						<div class="col-sm-9">
+							<input class="col-sm-9" type="text" name="computer_name" id="computer_name" 
+							placeHolder="格式必须是A1，B2，C5，B13，D14等等"/>
+							<!-- 王霄鹏 -->
+						</div>
+					</div>
+					
+					<div class="form-group col-sm-12">
+						<label for="student_number" class="col-sm-3 control-label">请上传SWF文件</label>
+						<div class="col-sm-9">
+							<input type="file" class="form-control" id="swf_url"
+								name="swf_url" type="file" />
+						</div>
+					</div>
+					
+					<div class="form-group col-sm-12">
+						<label for="student_number" class="col-sm-3 control-label">请上传FLA文件</label>
+						<div class="col-sm-9">
+							<input type="file" class="form-control" id="fla_url"
+								name="fla_url" type="file" />
+						</div>
+					</div>
+					<div class="form-group col-sm-12">
+						<label for="student_number" class="col-sm-3 control-label">作业创意描述</label>
+						<div class="col-sm-9">
+							<textarea name="description" id="description" cols="90" rows="3"></textarea>
+							<!-- 王霄鹏 -->
+						</div>
+					</div>
+					
+
+					<div class="form-group col-sm-12">
+						<div class="col-sm-offset-4 col-sm-10">
+							<button type="submit" class="btn btn-default">上传作业</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		
+		</div>
+		<script type="text/javascript">
+			
+		</script>
+
+	</div>
+</div>
