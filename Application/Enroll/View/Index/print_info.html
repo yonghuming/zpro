@@ -18,7 +18,10 @@
 
 				</legend>
 			
-				报名序号：{$confirm_id}
+				报名序号：{$confirm_id} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				
+				<span  style="float:right" id="print_time"></span>
+				<span  style="float:right">打印时间:&nbsp;</span>
 				
 				&nbsp; 
 				<table class=' table-bordered table-striped table-hover table-condensed'>
@@ -36,10 +39,12 @@
 						
 					</tr>
 					<tr>
-						<td>在校职务</td>
-						<td>{$student_duty}</td>
-						<td>毕业学校</td>
-						<td>{$graduation_school}</td>						
+						<td>民族</td>
+						<td>{$student_race}</td>
+						<td>政治面貌</td>
+						<td colspan='2'>{$political_status}</td>	
+						
+						
 					</tr>
 					<tr>
 					<td>性别</td>
@@ -47,13 +52,12 @@
 						<td>身份证号</td>
 						<td>{$id_number}</td>
 					</tr>
+					
 					<tr>
-						<td>民族</td>
-						<td>{$student_race}</td>
-						<td>政治面貌</td>
-						<td colspan='2'>{$political_status}</td>	
-						
-						
+						<td>在校职务</td>
+						<td>{$student_duty}</td>
+						<td>毕业学校</td>
+						<td>{$graduation_school}</td>						
 					</tr>
 					<tr>
 						<td>出生日期</td>
@@ -154,9 +158,10 @@
 
 			</div>
 			<br>
+			<br>
+			<br>
 			
-			<div class="col-sm-offset-2">打印时间
-				<span id="print_time"></span>&nbsp;&nbsp;&nbsp;&nbsp;考生签字:___________</div>
+			<div class="col-sm-offset-2" style="float:right">考生签字:____________</div>
 			<input type="button" onclick="a()" value="打印"/>
 		</div>
 		<script type="text/javascript">
