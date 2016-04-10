@@ -35,7 +35,7 @@ class IndexController extends Controller
             $this->display();
         } else {
             
-            $id = I('post.query_id') - 1700 + 1486;
+            $id = I('post.query_id');
             
             
             
@@ -254,7 +254,7 @@ class IndexController extends Controller
                 $enroll->uid = $_SESSION['enrolluid'];
                 $enroll->add();
                 trace($_POST);
-                $this->success('恭喜您，报名成功', U('Index/index'), 100);
+                $this->success('恭喜您，报名成功', U('Index/index'), 1);
             } else {
                 $this->error($enroll->getError());
             }
