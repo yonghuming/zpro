@@ -14,19 +14,21 @@
 		<div id="print"
 			class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 			<div class="row">
-				<legend>
-					<h2>青岛十七中2016年自主招生报名信息确认表</h2>
+				<legend style="text-align: center;">
+					<h3>山东省青岛第十七中学<br>2016年自主招生报名信息确认表</h3>
 
 				</legend>
 
-				报名序号：{$confirm_id} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+				报名序号：16{$confirm_id} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
 					style="float: right" id="print_time"></span> <span
 					style="float: right">打印时间:&nbsp;</span> &nbsp;
 				<table
 					class=' table-bordered table-striped table-hover table-condensed'>
 
 					<tr>
-						<td colspan='6'>基础信息</td>
+						<td colspan='4'>基础信息</td>
+						<td rowspan='6'><img width='160' src="__ROOT__{$pic_url}"
+							alt="" /></td>
 					</tr>
 					<tr>
 
@@ -34,15 +36,14 @@
 						<td>{$student_name}</td>
 						<td>学籍号</td>
 						<td>{$student_number}</td>
-						<td rowspan='6'><img width='160' src="__ROOT__{$pic_url}"
-							alt="" /></td>
+						
 
 					</tr>
 					<tr>
 						<td>民族</td>
 						<td>{$student_race}</td>
 						<td>政治面貌</td>
-						<td colspan='2'>{$political_status}</td>
+						<td colspan='1'>{$political_status}</td>
 
 
 					</tr>
@@ -60,10 +61,10 @@
 						<td>{$graduation_school}</td>
 					</tr>
 					<tr>
-						<td>出生日期</td>
+						<td>出生年月</td>
 						<td>{$student_birth}</td>
 						<td>是否应届毕业生</td>
-						<td colspan='2'>{$contact_number1}</td>
+						<td colspan='1'>{$contact_number1}</td>
 
 					</tr>
 					<tr>
@@ -158,60 +159,19 @@
 
 
 			</div>
-			<br> <br> <br>
+			
 
-			<div class="col-sm-offset-2" style="float: right">考生签字:____________</div>
-			<input type="button" onclick="a()" value="打印" /> <input type="button"
-				onclick="b()" value="打印准考证" />
+			<div class="col-sm-offset-2" style="float: right"><br><br><h4>考生签字:____________</h4></div>
+			
 
 		</div>
-		<div id='zhkq' class="col-sm-offset-3 main">
-			<div class="row">
-				青岛十七中2016年自主招生<br>
-综合测试准考证
-			
-
-			</div>
-			<div class="row">
-				<div><img style="float:right" width='160' src="__ROOT__{$pic_url}"
-							alt="" /></div>
-				<div>姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名：_______________性别：___________</div>
-				<div>毕业学校：_______________________________</div>
-				<div>初中学号：_______________________________</div>
-				<div>考&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;场：_______________________________</div>
-				<div>考&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号：_______________________________</div>
-				<div>测试时间：</div>
-				<div>笔试：4月23日（星期六）上午7:50—12:00</div>
-				<div>面试：4月24日（星期日）上午8:00—12:00</div>
-				<div>注：1.笔试、面试集合入场时间皆为7:30；</div>
-				<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.笔试时考生不得携带计算器、手机、手表等电子设备入场。</div>
-				
-			</div>
-			<br>
-			<br />
-			<h2>青岛十七中2016年自主招生<br>
-综合测试准考证</h2>
-			
-			<div class="row">
-			<div><img style="float:right" width='120' src="__ROOT__{$pic_url}"
-							alt="" /></div>
-				<h4>
-				<div>姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名：_______________性别：___________</div>
-				<div>毕业学校：_______________________________</div>
-				<div>初中学号：_______________________________</div>
-				<div>考&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;场：_______________________________</div>
-				<div>考&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号：_______________________________</div>
-				<div>测试时间：</div>
-				<div>笔试：4月23日（星期六）上午7:50—12:00</div>
-				<div>面试：4月24日（星期日）上午8:00—12:00</div>
-				<div>注：1.笔试、面试集合入场时间皆为7:30；</div>
-				<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.笔试时考生不得携带计算器、手机、手表等电子设备入场。</div>
-				
-				</h4>
-			</div>
+	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+		
+		<input type="button" onclick="a()" value="打印" /> 
+	</div>
 			
 			
-		</div>
+		
 		<script type="text/javascript">
 			
 		</script>

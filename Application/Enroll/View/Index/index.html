@@ -14,11 +14,12 @@
 			<div class="row" >
 				<if condition="$enrolled eq 0">
 				<div class="col-sm-6">
-					<a href="__URL__/insert" class='btn button-success'>请您先填写您的个人信息</a>
+					<a href="__URL__/insert" class='btn btn-success' role='button'>请您先填写您的个人信息</a>
+					
 				</div>
 				<else />
-				<legend>
-					<h2>青岛十七中2016年自主招生报名信息表</h2>
+				<legend style="text-align: center;">
+						<h3>山东省青岛第十七中学<br>2016年自主招生报名信息确认表</h3>
 
 				</legend>
 				打印时间
@@ -26,16 +27,17 @@
 				<table class=' table-bordered table-striped table-hover table-condensed'>
 				
 					<tr>
-						<td colspan='6'>基础信息</td>
+						<td colspan='4'>基础信息</td>
+						<td rowspan='6'><img  width='160' src="__ROOT__{$pic_url}" alt="" /></td>
 					</tr>
 					<tr>
-					
+						
 						<td>姓名</td>
 						<td>{$student_name}</td>
 						<td>学籍号</td>
 						<td>{$student_number}</td>
 						
-						<td rowspan='6'><img  width='160' src="__ROOT__{$pic_url}" alt="" /></td>
+						
 					</tr>
 					<tr>
 					<td>性别</td>
@@ -47,7 +49,7 @@
 						<td>民族</td>
 						<td>{$student_race}</td>
 						<td>政治面貌</td>
-						<td colspan='2'>{$political_status}</td>	
+						<td colspan='1'>{$political_status}</td>	
 						
 						
 					</tr>
@@ -59,10 +61,10 @@
 					</tr>
 					
 					<tr>
-						<td>出生日期</td>
+						<td>出生年月</td>
 						<td>{$student_birth}</td>
 						<td>是否应届毕业生</td>
-						<td colspan='2'>{$contact_number1}</td>
+						<td colspan='1'>{$contact_number1}</td>
 						
 					</tr>
 					<tr>
@@ -83,27 +85,30 @@
 								<td rowspan='3'>监护人<br>信息</td>
 								<td>称谓</td>
 								<td >姓名</td>
-								<td>联系手机</td>
 								<td>工作单位</td>
+								<td>联系手机</td>
+								
 							</tr>
 							<tr>
 								<td>{$guarder1_greet}</td>
 								<td>
 									{$guarder1_name} </td>
+									<td>
+									{$guarder1_address} </td>
 								<td> {$guarder1_tel}
 									</td>
-								<td>
-									{$guarder1_address} </td>
+								
 									
 							</tr>
 							<tr>
 								<td>{$guarder2_greet}</td>
 								<td>
 									{$guarder2_name} </td>
+									<td>
+									{$guarder2_address} </td>
 								<td>{$guarder2_tel}
 									</td>
-								<td>
-									{$guarder2_address} </td>
+								
 							</tr>
 					<!-- end changshi -->
 					
@@ -159,14 +164,15 @@
 				</if>
 
 			</div>
-			<div class="form-group col-sm-10">
-						<div class="col-sm-offset-2 col-sm-10">
-							<a class="btn btn-success" href="__URL__/edit" role="button">修改</a>
-						<input type="button" onclick="a()" value="打印"/>
-						</div>
-					</div>
+		
 		</div>
 </div>
+
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+		
+		<a class="btn btn-success" href="__URL__/edit" role="button">修改</a>
+						<input type="button" onclick="a()" value="打印"/>
+	</div>
 <script type="text/javascript">
 
 </script>
