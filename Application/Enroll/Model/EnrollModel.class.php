@@ -18,7 +18,7 @@ class EnrollModel extends Model{
         array('student_number','require','学籍号不能为空'),
         array('student_number','number','学籍号必须是数字'),
        # array('verify', 'verify_check', '验证码错误', 0, 'function'), 
-        array('student_number','check_length','学籍号为19位',1,'callback'),
+        array('student_number','check_length','学籍号为19位或者必须是2013开头',1,'callback'),
 
         array('id_number','require','身份证号不能为空'),
         array('id_number','check_identity','身份证格式不正确',1,'callback'),
