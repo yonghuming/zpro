@@ -5,7 +5,7 @@ use Think\Model;
 
 class EnrollModel extends Model{
     protected function check_length(){
-        if ((strlen(I('post.student_number')) == 19) && (substr(0,4) == '2013')){
+        if ((strlen(I('post.student_number')) == 19) && (substr(I('post.student_number'),0,4) == '2013')){
             return true;
         }else{
             return false;
@@ -18,7 +18,7 @@ class EnrollModel extends Model{
         array('student_number','require','学籍号不能为空'),
         array('student_number','number','学籍号必须是数字'),
        # array('verify', 'verify_check', '验证码错误', 0, 'function'), 
-       # array('student_number','check_length','学籍号为19位或者必须是2013开头',1,'callback'),
+       array('student_number','check_length','学籍号为19位或者必须是2013开头',1,'callback'),
         array('guarder1_tel','require','第一监护人联系方式不能为空'),
         #  array('guarder2_tel','require','不能为空'),
         array('guarder1_address','require','第一监护人地址不能为空'),
