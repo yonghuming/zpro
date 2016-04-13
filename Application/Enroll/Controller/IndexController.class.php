@@ -16,10 +16,10 @@ class IndexController extends Controller
        
         
         if (strtotime(date('Y-m-d H:i')) < strtotime('2016-4-14 06:30')) {
-            E('您好报名时间未到');
+            $this->display('early');
         }
         if (strtotime(date('Y-m-d H:i')) > strtotime('2016-4-15 16:30')) {
-            E('您好报名时间已过');
+            $this->display('early');
         }
         
         
