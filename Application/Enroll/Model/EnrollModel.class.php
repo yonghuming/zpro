@@ -5,10 +5,10 @@ use Think\Model;
 
 class EnrollModel extends Model{
     protected function check_length(){
-        if ((strlen(I('post.student_number')) != 19) && (substr(0,4) != '2013')){
-            return false;
-        }else{
+        if ((strlen(I('post.student_number')) == 19) && (substr(0,4) == '2013')){
             return true;
+        }else{
+            return false;
         }
     }
     protected $_validate = array(
