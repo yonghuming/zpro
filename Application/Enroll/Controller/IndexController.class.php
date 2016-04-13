@@ -15,12 +15,12 @@ class IndexController extends Controller
     {
        
         
-//         if (strtotime(date('Y-m-d H:i')) < strtotime('2016-4-14 06:30')) {
-//             $this->show('您好报名时间未到');
-//         }
-//         if (strtotime(date('Y-m-d H:i')) > strtotime('2016-4-15 16:30')) {
-//             $this->show('您好报名时间已过');
-//         }
+        if (strtotime(date('Y-m-d H:i')) < strtotime('2016-4-14 06:30')) {
+            $this->show('您好报名时间未到');
+        }
+        if (strtotime(date('Y-m-d H:i')) > strtotime('2016-4-15 16:30')) {
+            $this->show('您好报名时间已过');
+        }
         
         
         if (null == session('enrolluid')) {
