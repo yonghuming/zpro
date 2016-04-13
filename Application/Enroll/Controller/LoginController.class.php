@@ -23,14 +23,14 @@ class LoginController extends Controller
      */
     public function _initialize()
     {
-        if (strtotime(date('Y-m-d H:i')) < strtotime('2016-4-14 06:30')) {
-            $this->display('early');
-            exit();
-        }
-        if (strtotime(date('Y-m-d H:i')) > strtotime('2016-4-15 16:30')) {
-            $this->display('early');
-            exit();
-        }
+//         if (strtotime(date('Y-m-d H:i')) < strtotime('2016-4-14 06:30')) {
+//             $this->display('early');
+//             exit();
+//         }
+//         if (strtotime(date('Y-m-d H:i')) > strtotime('2016-4-15 16:30')) {
+//             $this->display('early');
+//             exit();
+//         }
         layout(false);
     }
 
