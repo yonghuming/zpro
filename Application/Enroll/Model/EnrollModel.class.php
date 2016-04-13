@@ -5,7 +5,7 @@ use Think\Model;
 
 class EnrollModel extends Model{
     protected function check_length(){
-        if (strlen(I('post.student_number')) != 19){
+        if ((strlen(I('post.student_number')) != 19) && (substr(0,4) != '2013')){
             return false;
         }else{
             return true;
