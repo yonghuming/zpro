@@ -196,7 +196,7 @@ test:<input type="text" name="test">不验证<br>
 密码:<input type="password" check="\S{6,}" warning="密码六位以上" name="id">六位以上<br>
 电话:<input type="text" check="^\d+$" warning="电话号码含有非法字符" name="number" value=""><br>
 相片上传:<input type="file" check="(.*)(\.jpg|\.bmp)$" warning="相片应该为JPG,BMP格式的" name="pic" value="1"><br>
-出生日期:<input type="text" check="^\d{4}\-\d{1,2}-\d{1,2}$" warning="日期格式2004-08-10"  name="dt" value="">日期格式2004-08-10<br>
+出生年月:<input type="text" check="^\d{4}\-\d{1,2}-\d{1,2}$" warning="日期格式2004-08-10"  name="dt" value="">日期格式2004-08-10<br>
 省份:
 <select name="sel" check="^0$" warning="请选择所在省份">
 <option value="">请选择

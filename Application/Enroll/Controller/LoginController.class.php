@@ -33,6 +33,8 @@ class LoginController extends Controller
         }
         layout(false);
     }
+    
+    
 
     public function login()
     {
