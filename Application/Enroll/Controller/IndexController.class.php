@@ -19,10 +19,10 @@ class IndexController extends Controller
             $this->display('early');
             exit();
         }
-        if (strtotime(date('Y-m-d H:i')) > strtotime('2016-4-15 16:30')) {
+    /*    if (strtotime(date('Y-m-d H:i')) > strtotime('2016-4-15 16:30')) {
             $this->display('early');
             exit();
-        }
+        }*/
         
         
         if (null == session('enrolluid')) {
@@ -96,6 +96,7 @@ class IndexController extends Controller
             $result = $enroll->where('uid = ' . I('get.id'))->find();
              //重复操作
             $enroll->confirmed = '1';
+            
             $enroll->where('uid = '. I('get.id'))->save();
             
             

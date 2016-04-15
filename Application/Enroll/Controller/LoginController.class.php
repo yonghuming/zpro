@@ -27,10 +27,10 @@ class LoginController extends Controller
             $this->display('early');
             exit();
         }
-        if (strtotime(date('Y-m-d H:i')) > strtotime('2016-4-15 16:30')) {
+      /*  if (strtotime(date('Y-m-d H:i')) > strtotime('2016-4-15 16:30')) {
             $this->display('early');
             exit();
-        }
+        }*/
         layout(false);
     }
     
