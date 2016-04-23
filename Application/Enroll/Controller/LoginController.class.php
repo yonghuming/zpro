@@ -60,8 +60,7 @@ class LoginController extends Controller
             $result = $login->where($where)
                         ->field('student_name,uid,id_number,student_number')
                         ->find();
-           dump($result);
-           dump($login->getLastSql());
+         
             if ($result['id_number'] == '' || $result['student_number'] == ''){
                 $this->error('用户不存在');
                 
