@@ -34,6 +34,9 @@ class IndexController extends Controller
         
     }
     public function query(){
+        if (strtotime(date('Y-m-d H:i')) < strtotime('2016-4-23 06:00')) {
+            $this->error('亲，未到查询时间哦，(●—●)');
+        }
         $score = M('score');
         $xuehao = session('student_number');
         $result = $score->where('student_number ="'.$xuehao.'"')->find();
