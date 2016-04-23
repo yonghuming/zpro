@@ -37,7 +37,7 @@ class LoginController extends Controller
     public function query()
     {
         if (strtotime(date('Y-m-d H:i')) < strtotime('2016-4-23 18:00')) {
-            $this->error('亲，未到查询时间哦，(●—●)');
+            $this->error('亲，未到查询时间哦，2016年4月23日晚6:00开始查询，(●—●)');
             exit();
         }
         // 判断提交方式
