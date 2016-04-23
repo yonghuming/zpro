@@ -33,6 +33,25 @@ class IndexController extends Controller
     public function query_score(){
         
     }
+    public function query(){
+        $score = M('score');
+        $xuehao = session('student_number');
+        $result = $score->where('student_number ='.$xuehao)->find();
+//         dump($score->getLastSql());
+//         dump($result);
+
+        $this->assign('name',session('student_name'));
+        $this->assign('chinese',$result['chinese']);
+        $this->assign('math',$result['math']);
+        $this->assign('wuli',$result['wuli']);
+        $total = $result['wuli']+$result['math']+$result['chinese'];
+        $this->assign('total',$total);
+        //todo:规则，多少分是被录取
+        $flag = $total > 100 ? true : false;
+        $this->assign('flag',$flag);
+        
+        $this->display();
+    }
     public function check_in()
     {
         $auth = new Auth();

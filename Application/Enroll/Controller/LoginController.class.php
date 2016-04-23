@@ -34,7 +34,72 @@ class LoginController extends Controller
         layout(false);
     }
     
+    public function query()
+    {
     
+        // 判断提交方式
+        if (IS_POST) {
+            // 实例化Login对象
+            $login = D('Query');
+    
+            // 自动验证 创建数据集
+            if (!$data = $login->create()) {
+                // 防止输出中文乱码
+                // header("Content-type: text/html; charset=utf-8");
+                exit($login->getError());
+            }
+    
+            // 组合查询条件
+            $where = array();
+            #是否存在是否匹配
+            #哈汇文
+            #如果存在是否在确认表
+            
+            $where['id_number'] = $data['id_number'];
+            $result = $login->where($where)
+                        ->field('student_name,uid,id_number,student_number')
+                        ->find();
+           dump($result);
+           dump($login->getLastSql());
+            if ($result['id_number'] == '' || $result['student_number'] == ''){
+              #  $this->error('用户不存在');
+                
+            }
+            #是否匹配
+            
+            // 验证用户名 对比 密码
+            trace($data);
+            if ($result && $result['student_number'] == $data['student_number']) {
+                // 存储session
+                session('enrolluid', $result['uid']); // 当前用户id
+                session('student_name', $result['student_name']); // 当前用户id
+                session('student_number', $result['student_number']); // 当前用户id
+                
+    
+                session('enrollusername', $result['username']); // 当前用户名
+                session('last_login', $result['last_login']); // 上一次登录时间
+                // 上一次登录ip
+                
+                // 更新用户登录信息
+                trace($_SESSION);
+    
+                $auth = new Auth();
+               
+                if(!$auth->check('confirm',session('enrolluid'))){
+                    $this->success('登录成功,正跳转至系统首页...', U('Index/query'),1);
+                }else{
+                    $this->success('登录成功,正跳转至系统首页...', U('Index/check_in'),1);
+                }
+    
+    
+                 
+            } else {
+                $this->error('身份证和学籍号不匹配!');
+            }
+        } else {
+            $this->display();
+        }
+    }
 
     public function login()
     {
