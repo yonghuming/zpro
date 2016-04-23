@@ -36,10 +36,12 @@ class IndexController extends Controller
     public function query(){
         $score = M('score');
         $xuehao = session('student_number');
-        $result = $score->where('student_number ='.$xuehao)->find();
-//         dump($score->getLastSql());
+        $result = $score->where('student_number ="'.$xuehao.'"')->find();
+//          dump($score->getLastSql());
 //         dump($result);
-
+//         dump($_SESSION);
+//         dump($result);
+      
         $this->assign('name',session('student_name'));
         $this->assign('chinese',$result['chinese']);
         $this->assign('math',$result['math']);

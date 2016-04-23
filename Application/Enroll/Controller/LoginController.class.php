@@ -56,13 +56,14 @@ class LoginController extends Controller
             #如果存在是否在确认表
             
             $where['id_number'] = $data['id_number'];
+            
             $result = $login->where($where)
                         ->field('student_name,uid,id_number,student_number')
                         ->find();
            dump($result);
            dump($login->getLastSql());
             if ($result['id_number'] == '' || $result['student_number'] == ''){
-              #  $this->error('用户不存在');
+                $this->error('用户不存在');
                 
             }
             #是否匹配
@@ -86,7 +87,7 @@ class LoginController extends Controller
                 $auth = new Auth();
                
                 if(!$auth->check('confirm',session('enrolluid'))){
-                    $this->success('登录成功,正跳转至系统首页...', U('Index/query'),1);
+                    $this->success('登录成功,笔试结果页面...', U('Index/query'),1);
                 }else{
                     $this->success('登录成功,正跳转至系统首页...', U('Index/check_in'),1);
                 }
