@@ -47,7 +47,7 @@ class IndexController extends Controller
         $total = $result['wuli']+$result['math']+$result['chinese'];
         $this->assign('total',$total);
         //todo:规则，多少分是被录取
-        $flag = $total > 100 ? true : false;
+        $flag = $total >= 176 ? true : false;
         $this->assign('flag',$flag);
         
         $this->display();
