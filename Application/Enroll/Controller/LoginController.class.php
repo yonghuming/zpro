@@ -36,10 +36,7 @@ class LoginController extends Controller
     
     public function query()
     {
-        if (strtotime(date('Y-m-d H:i')) < strtotime('2016-4-23 18:00')) {
-            $this->error('亲，未到查询时间哦，2016年4月23日晚6:00开始查询，(●—●)');
-            exit();
-        }
+       
         // 判断提交方式
         if (IS_POST) {
             // 实例化Login对象
@@ -89,7 +86,7 @@ class LoginController extends Controller
                 $auth = new Auth();
                
                 if(!$auth->check('confirm',session('enrolluid'))){
-                    $this->success('登录成功,笔试结果页面...', U('Index/query'),1);
+                    $this->success('登录成功,综合成绩页面...', U('Index/query'),1);
                 }else{
                     $this->success('登录成功,正跳转至系统首页...', U('Index/check_in'),1);
                 }
