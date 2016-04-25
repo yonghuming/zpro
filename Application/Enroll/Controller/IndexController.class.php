@@ -52,7 +52,7 @@ class IndexController extends Controller
         $total = $result['wuli']+$result['math']+$result['chinese']+$result['mianshi'];
         $this->assign('total',$total);
         //todo:规则，多少分是被录取
-        $flag = $total >= 196 ? true : false;
+        $flag = $total >= 199 ? true : false;
         $this->assign('flag',$flag);
         
         $this->display();
