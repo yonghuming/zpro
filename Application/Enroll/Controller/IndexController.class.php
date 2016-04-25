@@ -34,7 +34,10 @@ class IndexController extends Controller
         
     }
     public function query(){
-      
+        if (strtotime(date('Y-m-d H:i')) < strtotime('2016-4-23 18:00')) {
+           $this->error('亲，未到查询时间哦，2016年4月23日晚6:00开始查询，(●—●)');
+            exit();
+        }
         $score = M('score');
         $xuehao = session('student_number');
         $result = $score->where('student_number ="'.$xuehao.'"')->find();
@@ -47,9 +50,7 @@ class IndexController extends Controller
         $this->assign('chinese',$result['chinese']);
         $this->assign('math',$result['math']);
         $this->assign('wuli',$result['wuli']);
-        $this->assign('mianshi',$result['mianshi']);
-        
-        $total = $result['wuli']+$result['math']+$result['chinese']+$result['mianshi'];
+        $total = $result['wuli']+$result['math']+$result['chinese'];
         $this->assign('total',$total);
         //todo:规则，多少分是被录取
         $flag = $total >= 176 ? true : false;
