@@ -26,7 +26,7 @@
 						</head>
 						<body>
 						<div class="error">
-						<img src="http://pic.yesky.com/imagelist/06/49/1155437_7672.jpg"/>
+						
 						<h1><?php echo strip_tags($e['message']);?></h1>
 						<div class="content">
 						<?php if(isset($e['file'])) {?>
